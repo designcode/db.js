@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en-US" xmlns:fb="http://ogp.me/ns/fb#">
+	<head>
+		<meta charset="utf-8">
+		<title>DB.JS Test</title>
+
+		<script type="text/javascript" src="db.js"></script>
+		<script type="text/javascript">
+			db.connect({
+				'name' : 'test',
+				'version' : '1.0',
+				'display_name': 'Test Database',
+				'size': 102400
+			});
+
+			db.create_table([{
+				name: 'test_table', 
+				fields: [
+					{name: 'id', type: 'INTEGER PRIMARY KEY'},
+					{name: 'title', type: 'VARCHAR'}
+				]
+			}]);
+
+			db.insert('test_table', {
+				fields: ['title'], 
+				values: ['Abdullah'],
+				callback: function (results) {
+					console.log(results);
+				}
+			});
+
+			db.update('test_table', {
+				id: '5',
+				data: {
+					'title': 'Ibrahim'
+				},
+				callback: function (results) {
+					console.log(results);
+				}
+			});
+
+			db.delete('test_table', {
+				id: '5',
+				callback: function (results) {
+					console.log(results);
+				}
+			});
+
+			db.select('test_table', {
+				limit: 5,
+				order_by: 'id',
+				sort: 'DESC',
+				callback: function (results) {
+					console.log(results.rows.length);
+					for(i = 0; i < results.rows.length; i++) {
+						console.log(results.rows.item(i));
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
