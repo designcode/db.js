@@ -11,7 +11,7 @@ This class assumes that you have knowledge of Web SQL Database API. If not, chec
 First you must include db.js in your html
 	<script type="text/javascript" src="db.js"></script>
 
-- Connecting to DB
+### Connecting to DB
 	db.connect({
 		'name' : 'test',
 		'version' : '1.0',
@@ -19,7 +19,7 @@ First you must include db.js in your html
 		'size': 102400
 	});
 
-- Creating New Table
+### Creating New Table
 	db.create_table([{
 		name: 'students', 
 		fields: [
@@ -41,7 +41,7 @@ First you must include db.js in your html
 		]
 	}]);
 
-- Creating table and dropping table if one exists with same name
+### Creating table and dropping table if one exists with same name
 	db.create_table([{
 		name: 'students', 
 		fields: [
@@ -50,12 +50,12 @@ First you must include db.js in your html
 		]
 	}], true);
 
-- Querying
+### Querying
 	db.query('select * from students where id > 100', function (results) {
 		console.log(results);
 	});
 
-- Using Select Helper
+### Using Select Helper
 	db.select('students', {
 		limit: 10,
 		order_by: 'id',
@@ -71,7 +71,7 @@ First you must include db.js in your html
 		}
 	});
 
-- Using Insert Helper
+### Using Insert Helper
 	db.insert('student_courses', {
 		fields: ['student_id', 'course_id'], 
 		values: ['100', '50'],
@@ -81,7 +81,7 @@ First you must include db.js in your html
 		}
 	});
 
-- Using Update Helper
+### Using Update Helper
 	db.update('students', {
 		id: '5',
 		data: {
@@ -92,7 +92,7 @@ First you must include db.js in your html
 		}
 	});
 
-- Using Delete Helper
+### Using Delete Helper
 	db.delete('students', {
 		id: '5',
 		callback: function (results) {
