@@ -1,8 +1,5 @@
-# kohana-hooks
-This module lets you register, observer and trigger custom hooks/events in your classes. It offers a functionality like WordPress hooks. Basically you can register a hook in your code and attach a handler with that hook. You can trigger the hook/event in your code where you want to.
-
-## Overview
-A wrapper on Web SQL Database API. It also provides some handy helpers such as create table, select, insert, update and delete.
+# DB.JS
+DB.JS is a wrapper on Web SQL Database API. It also provides some handy helpers such as create table, select, insert, update and delete.
 
 ## Getting Started
 This class assumes that you have knowledge of Web SQL Database API. If not, check this link http://www.w3.org/TR/webdatabase/
